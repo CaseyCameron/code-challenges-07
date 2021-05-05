@@ -28,11 +28,8 @@ export function hasChildrenEntries(obj){
 
 export function sortByChildren(arr){
     arr.sort((a, b) => {
-      if (a.children.length < b.children.length){
-        return -1
-      } else {
+      if (a.children.length < b.children.length) return -1
         return 1
-        }
     }) 
     return arr;
 }
