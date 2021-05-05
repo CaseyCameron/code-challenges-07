@@ -7,9 +7,17 @@ export function updateNumbers(obj){
   return arr.map(item => item[0] + ': ' + item[1]);
 }
 
-export function totalCharacters(arr){
-  const temp = Object.values(arr).map(key => key);
-  return temp;
+export function totalCharacters(arr) {
+  let character = 0;
+  arr.forEach(n => {
+    if (n.spouse !== null)
+      character++;
+    if (n.children.length > 0)
+       character += n.children.length;
+    if (n.name !== '')
+       character++;
+    });
+  return character;
 }
 
 export function hasChildrenEntries(obj){
@@ -18,6 +26,13 @@ export function hasChildrenEntries(obj){
   return false;
 }
 
-export function sortByChildren(obj){
-  return Object.entries(obj).sort((a, b) => a.length - b.length)
+export function sortByChildren(arr){
+    arr.sort((a, b) => {
+      if (a.children.length < b.children.length){
+        return -1
+      } else {
+        return 1
+        }
+    }) 
+    return arr;
 }
