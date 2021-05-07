@@ -1,4 +1,13 @@
-import { howMuchPencil, wordsToCharList, listFoods, stepActions, removeLastCharacters } from './array-methods';
+import { 
+  howMuchPencil, 
+  wordsToCharList, 
+  listFoods, 
+  stepActions, 
+  removeLastCharacters, 
+  totalSumCSV,
+  removeVowels,
+  extractVowels
+} from './array-methods';
 
 const gruffaloCrumble = {
   name: 'How to make a Gruffalo Crumble',
@@ -58,18 +67,18 @@ test('removeLastCharacters', () => {
 });
 
 // // stretch goals
-// test('totalSumCSV', () => {
-//   expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
-//   expect(totalSumCSV('147')).toStrictEqual(147);
-// });
+test('totalSumCSV', () => {
+  expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
+  expect(totalSumCSV('147')).toStrictEqual(147);
+});
 
-// test('removeVowels', () => {
-//   expect(removeVowels('gregor')).toStrictEqual('grgr');
-//   expect(removeVowels('asdf')).toStrictEqual('sdf');
-//   expect(removeVowels('why')).toStrictEqual('why');
-// });
+test('removeVowels', () => {
+  expect(removeVowels('gregor')).toStrictEqual('grgr');
+  expect(removeVowels('asdf')).toStrictEqual('sdf');
+  expect(removeVowels('why')).toStrictEqual('why');
+});
 
-// test('extractVowels', () => {
-//   expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
-//   expect(extractVowels('The quick brown fox')).toStrictEqual(['Th qck brwn fx', 'eioou']);
-// });
+test('extractVowels', () => {
+  expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
+  expect(extractVowels('The quick brown fox')).toStrictEqual(['Th qck brwn fx', 'eioou']);
+});

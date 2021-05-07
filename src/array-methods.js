@@ -25,3 +25,19 @@ export function removeLastCharacters(string, num){
   if (num >=1 ) return string.slice(0, -num);
   return string;
 }
+
+export function totalSumCSV(string){
+  const arr = string.split(',').map(Number);
+  return arr.reduce((a, b) => a + b);
+}
+
+export function removeVowels(string){
+  return string.replace(/[aeiou]/g, ''); 
+}
+
+export function extractVowels(string){
+  const arr = [];
+  arr.push(string.match(/[^aeiou]/ig).join(''));
+  arr.push(string.match(/[aeiou]/ig).sort().join(''));
+  return arr;
+}
