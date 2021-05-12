@@ -19,3 +19,8 @@ export function countNumberOfElements(arr){
 export function returnNames (arr){
   return arr.reduce((a, b) => [...a, b.name], []);
 };
+
+export function reversedString(string){
+  return string.split('').reduce((a, b) => b + a, '');
+};
+
