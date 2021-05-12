@@ -1,4 +1,4 @@
-import { toLastNames, addValues, addPurchases, countNumberOfElements, returnNames } from './code-challenge-12.js';
+import { toLastNames, addValues, addPurchases, countNumberOfElements, returnNames, reversedString } from './code-challenge-12.js';
 const starWarsData = [{
   name: 'Luke Skywalker',
   height: '172',
@@ -49,6 +49,49 @@ const starWarsData = [{
   gender: 'female'
 }];
 
+const characters = [
+  {
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house: 'Stark',
+  },
+  {
+    name: 'Jon',
+    spouse: 'Lysa',
+    children: ['Robin'],
+    house: 'Arryn',
+  },
+  {
+    name: 'Cersei',
+    spouse: 'Robert',
+    children: ['Joffrey', 'Myrcella', 'Tommen'],
+    house: 'Lannister',
+  },
+  {
+    name: 'Daenarys',
+    spouse: 'Khal Drogo',
+    children: ['Drogon', 'Rhaegal', 'Viserion'],
+    house: 'Targaryen',
+  },
+  {
+    name: 'Mace',
+    spouse: 'Alerie',
+    children: ['Margaery', 'Loras'],
+    house: 'Tyrell',
+  },
+  {
+    name: 'Sansa',
+    spouse: 'Tyrion',
+    house: 'Stark',
+  },
+  {
+    name: 'Jon',
+    spouse: null,
+    house: 'Snow',
+  },
+];
+
 test('Returns an array of names combined', () => {
   expect(toLastNames([{ firstName:'Jane', lastName:'Doe' }, { firstName:'James', lastName:'Bond' }])).toStrictEqual(['Jane Doe', 'James Bond']);
 });
@@ -68,3 +111,8 @@ test('Returns the number of elements in the array', () => {
 test('Returns an array of names', () => {
   expect(returnNames(starWarsData)).toStrictEqual(['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa']);
 });
+
+test('Returns a string in reverse order', () => {
+  expect(reversedString('hello')).toStrictEqual('olleh');
+});
+
