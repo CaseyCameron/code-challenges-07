@@ -1,4 +1,11 @@
-import { toLastNames, addValues, addPurchases, countNumberOfElements, returnNames, reversedString } from './code-challenge-12.js';
+import { toLastNames, 
+  addValues, 
+  addPurchases, 
+  countNumberOfElements, 
+  returnNames, 
+  reversedString,
+  countNumberOfChildren } from './code-challenge-12.js';
+
 const starWarsData = [{
   name: 'Luke Skywalker',
   height: '172',
@@ -116,3 +123,6 @@ test('Returns a string in reverse order', () => {
   expect(reversedString('hello')).toStrictEqual('olleh');
 });
 
+// test('Adds up the children', () => {
+//   expect(countNumberOfChildren(characters)).toStrictEqual(14);
+// });
