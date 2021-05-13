@@ -1,5 +1,9 @@
-export function sortByChildren(){
-
+export function sortByChildren(arr){
+    arr.sort((a, b) => {
+      if (a.children.length < b.children.length) return -1
+        return 1
+    }) 
+    return arr;
 }
 
 export function containsW(string){
@@ -16,5 +20,22 @@ export function containsWorld(string){
 }
 
 export function isCapitalized(str){
-  console.log(str.match(/\b[A-Z]\b/));
-};
+  // const temp = str.replace(/[,.)]/g, '');
+  // const splitArr = temp.split(' ');
+  // return splitArr.filter((word) => word.match(/[A-Z]/));
+  return str.match(/[A-Z]\w+/g) || []; //w+  is keep selecting til you get a non-letter char
+}
+
+export function citiesAtoJ(cities){
+  let arr = [];
+  for (let city of cities)
+    if (city.charAt(0).match(/[A-J]/)){
+      arr.push(city);
+  }
+  return arr;
+}
+
+export function matchMonth(str){
+  // ^word$ matches exactly. | strings together
+  return /^October$|^october$|^Oct$|^oct$/.test(str);
+}

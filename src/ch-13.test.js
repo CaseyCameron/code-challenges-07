@@ -3,7 +3,9 @@ import {
   containsW, 
   isNum, 
   containsWorld, 
-  isCapitalized
+  isCapitalized, 
+  citiesAtoJ, 
+  matchMonth
  } from './ch-13.js';
 
 let characters = [
@@ -51,12 +53,12 @@ let characters = [
   }
 ];
 
-// describe('Testing challenge 1', () => {
-//   test('It should sort the characters by number of children', () => {
-//     expect(sortByChildren(characters)[0].name).toStrictEqual('Euron');
-//     expect(sortByChildren(characters)[0].children.length).toStrictEqual(0);
-//   });
-// });
+describe('Testing challenge 1', () => {
+  test('It should sort the characters by number of children', () => {
+    const output = sortByChildren(characters); //act
+    expect(output).toEqual([ {name: 'Euron', spouse: null, children: [], house: 'Greyjoy'}, { name: 'Jon S.', spouse: null, children: [],house: 'Snow'}, {name: 'Jon A.', spouse: 'Lysa', children: ['Robin'], house: 'Arryn'}, {name: 'Mace', spouse: 'Alerie', children: ['Margaery', 'Loras'], house: 'Tyrell'}, { name: 'Cersei',spouse: 'Robert', children: ['Joffrey', 'Myrcella', 'Tommen'], house: 'Lannister'}, {name: 'Daenarys', spouse: 'Khal Drogo', children: ['Drogon', 'Rhaegal', 'Viserion'], house: 'Targaryen'}, {name: 'Eddard', spouse: 'Catelyn', children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'], house: 'Stark'}]); //assert
+  });
+});
 
 describe('Testing challenge 2', () => {
   test('It should return true if it has a W', () => {
@@ -89,5 +91,26 @@ describe('Testing challenge 5', () => {
     expect(isCapitalized('We only want to Return the Words that begin With a capital Letter')).toStrictEqual(['We', 'Return', 'Words', 'With', 'Letter']);
     expect(isCapitalized('Given by our hand in the meadow that is called Runnymede, between Windsor and Staines, on the fifteenth day of June in the seventeenth year of our reign (i.e. 1215: the new regnal year began on 28 May).')).toStrictEqual(['Given', 'Runnymede', 'Windsor', 'Staines', 'June', 'May']);
     expect(isCapitalized('these words are all failures')).toStrictEqual([]);
+  });
+});
+
+describe('Testing challenge 6', () => {
+  test('It should return cities starting with letters a to j', () => {
+    expect(citiesAtoJ(['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'])).toStrictEqual(['Cleveland', 'Birmingham', 'Austin', 'Boston', 'Hoboken']);
+    expect(citiesAtoJ(['Albuquerque', 'Chicago', 'Philadelphia', 'Newark', 'Sacramento', 'Eugene'])).toStrictEqual(['Albuquerque', 'Chicago', 'Eugene']);
+    expect(citiesAtoJ([])).toStrictEqual([]);
+  });
+});
+
+describe('(Stretch) challenge 7', () => {
+  test('It should return true if Oct, oct, or October', () => {
+    expect(matchMonth('Oct')).toStrictEqual(true);
+    expect(matchMonth('oct')).toStrictEqual(true);
+    expect(matchMonth('October')).toStrictEqual(true);
+    expect(matchMonth('october')).toStrictEqual(true);
+    expect(matchMonth('November')).toStrictEqual(false);
+    expect(matchMonth('nov')).toStrictEqual(false);
+    expect(matchMonth('123')).toStrictEqual(false);
+    expect(matchMonth('octob')).toStrictEqual(false);
   });
 });
