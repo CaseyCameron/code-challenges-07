@@ -1,4 +1,4 @@
-import { sortByChildren, containsW } from './ch-13.js';
+import { sortByChildren, containsW, isNum } from './ch-13.js';
 
 let characters = [
   {
@@ -57,6 +57,16 @@ describe('Testing challenge 2', () => {
     expect(containsW('hello world')).toStrictEqual(true);
     expect(containsW('Hello World')).toStrictEqual(false);
     expect(containsW('hello everyone')).toStrictEqual(false);
+  });
+});
+
+describe('Testing challenge 2', () => {
+  test('It should return true if it has a number', () => {
+    expect(isNum(1234567890)).toStrictEqual(true);
+    expect(isNum('12345')).toStrictEqual(true);
+    expect(isNum('h3llo w0rld')).toStrictEqual(true);
+    expect(isNum('hello world')).toStrictEqual(false);
+    expect(isNum('')).toStrictEqual(false);
   });
 });
 
