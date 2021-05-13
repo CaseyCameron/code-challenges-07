@@ -10,3 +10,7 @@ export function containsW(string){
 export function isNum(data){
   return /\d/.test(data);
 }
+
+export function containsWorld(string){
+  return /world/i.test(string);
+}
