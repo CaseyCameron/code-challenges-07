@@ -24,3 +24,6 @@ export function reversedString(string){
   return string.split('').reduce((a, b) => b + a, '');
 };
 
+// export function countNumberOfChildren(characters){
+//   console.log(characters.reduce((a, b) => [...a, b.children], 0));
+// }
