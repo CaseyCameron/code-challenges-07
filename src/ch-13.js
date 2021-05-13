@@ -14,3 +14,7 @@ export function isNum(data){
 export function containsWorld(string){
   return /world/i.test(string);
 }
+
+export function isCapitalized(str){
+  console.log(str.match(/\b[A-Z]\b/));
+};
