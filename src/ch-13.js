@@ -39,3 +39,27 @@ export function matchMonth(str){
   // ^word$ matches exactly. | strings together
   return /^October$|^october$|^Oct$|^oct$/.test(str);
 }
+
+// export function noPunctuation(str){
+//   //return str.match(/(?![.:])\w+/g);
+//   return str.match(/^[a-zA-Z0-9 ]\w/);
+// }
+
+export function hangman(str){
+  return str.replace(/[aeiou]/ig, "_")
+}
+
+export function findShells(str){
+  let arr = [];
+  const words = str.split(' ');
+  for (let word of words){
+    if (word.includes('ells')){
+      if (word.includes('.')){
+        let temp = word.replace(/[.]/, '');
+        word = temp;
+      }
+      arr.push(word);
+    };
+  }
+  return arr;
+}

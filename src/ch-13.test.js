@@ -5,7 +5,10 @@ import {
   containsWorld, 
   isCapitalized, 
   citiesAtoJ, 
-  matchMonth
+  matchMonth,
+  noPunctuation,
+  hangman,
+  findShells
  } from './ch-13.js';
 
 let characters = [
@@ -112,5 +115,29 @@ describe('(Stretch) challenge 7', () => {
     expect(matchMonth('nov')).toStrictEqual(false);
     expect(matchMonth('123')).toStrictEqual(false);
     expect(matchMonth('octob')).toStrictEqual(false);
+  });
+});
+
+describe('(Stretch) challenge 8', () => {
+  test.skip('Return all words with a space following', () => {
+    expect(noPunctuation('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.'))
+    .toStrictEqual(['Lorem ', 'ipsum ', 'dolor ', 'sit ', 'consectetur ', 'adipiscing ', 'Cras ', 'lacinia ', 'vel ', 'massa ', 'sed ', 'Nunc ', 'faucibus ', 'iaculis ', 'a ', 'scelerisque ', 'enim ', 'condimentum ', 'Aenean ', 'ac ', 'scelerisque ', 'et ', 'pharetra ']);
+  });
+});
+
+describe('(Stretch) challenge 9', () => {
+  test('Replace vowels with underscore', () => {
+    expect(hangman('This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!'))
+    .toStrictEqual('Th_s _s _ r_g_x ch_ll_ng_. W_ _r_ try_ng t_ cr__t_ _ h_ngm_n phr_s_ wh_r_ _ll _f th_ v_w_ls _r_ m_ss_ng!');
+    expect(hangman('I wAnt them all tO bE removed and replaced with Underscores.'))
+    .toStrictEqual('_ w_nt th_m _ll t_ b_ r_m_v_d _nd r_pl_c_d w_th _nd_rsc_r_s.');
+  });
+});
+
+const seashells = `She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I'm sure she sells seashore shells.`;
+
+describe('(Stretch) challenge 10', () => {
+  test('Grab sells, seashells, shells', () => {
+    expect(findShells(seashells)).toStrictEqual(['sells', 'seashells', 'shells', 'sells', 'seashells', 'sells', 'shells', 'sells', 'shells']);
   });
 });
