@@ -37,13 +37,20 @@ export function citiesAtoJ(cities){
 
 export function matchMonth(str){
   // ^word$ matches exactly. | strings together
-  return /^October$|^october$|^Oct$|^oct$/.test(str);
+  // return /^October$|^october$|^Oct$|^oct$/.test(str);
+  return /^[Oo]ct(ober)?$/.test(str);
 }
 
-// export function noPunctuation(str){
-//   //return str.match(/(?![.:])\w+/g);
-//   return str.match(/^[a-zA-Z0-9 ]\w/);
-// }
+export function noPunctuation(str){
+  const regex = /\w+\s/g;
+  return str.match(regex);
+  // let arr = str.split(' ');
+  // for (let item of arr){
+  //   if (item.slice(-1) === /\ w+\s/g)
+  //     arr.push(item);
+  // }
+  // return arr;
+}
 
 export function hangman(str){
   return str.replace(/[aeiou]/ig, "_")
