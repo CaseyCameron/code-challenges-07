@@ -20,7 +20,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
+describe('Testing challenge 3', () => {
   test('It should return true if word is between 5-10 digits long', () => {
     expect(validateWord('abcd')).toStrictEqual(false);
     expect(validateWord('abcde')).toStrictEqual(true);
@@ -29,7 +29,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
+describe('Testing challenge 4', () => {
   test('It should return true if string has one or more letter followed by one or more digit', () => {
     expect(hasNumber('abcd')).toStrictEqual(false);
     expect(hasNumber('ab12')).toStrictEqual(true);
@@ -38,7 +38,7 @@ describe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
+describe('Testing challenge 5', () => {
   test('It should validate an email', () => {
     expect(validateEmail('joe.joe@joe.com')).toStrictEqual(true);
     expect(validateEmail('joe12@joe12.com')).toStrictEqual(true);
@@ -51,8 +51,8 @@ describe('Testing challenge 2', () => {
   });
 });
 
-describe('Testing challenge 2', () => {
-  test('It should validate a phone number', () => {
+describe('Testing challenge 6', () => {
+  test.skip('It should validate a phone number', () => {
     expect(validatePhoneNumber('(555) 555-5555')).toStrictEqual(true);
     expect(validatePhoneNumber('(555)555 5555')).toStrictEqual(true);
     expect(validatePhoneNumber('555 555-5555')).toStrictEqual(false);
@@ -64,3 +64,9 @@ describe('Testing challenge 2', () => {
     expect(validatePhoneNumber('5555555555')).toStrictEqual(false);
   });
 });
+
+// describe('Stretch challenge ', () => {
+//   test('It should show html tags', () => {
+//     expect(functionName('html')).toStrictEqual(true);
+//   });
+// });
