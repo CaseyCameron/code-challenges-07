@@ -1,10 +1,11 @@
-import { 
+import {
   replaceZeros,
   validatePin,
   validateWord,
   hasNumber,
-  validateEmail, 
-  validatePhoneNumber} from './ch-14.js';
+  validateEmail,
+  validatePhoneNumber
+} from './ch-14.js';
 
 describe('Testing challenge 1', () => {
   test('It should replace 0\'s with zero', () => {
@@ -52,16 +53,17 @@ describe('Testing challenge 5', () => {
 });
 
 describe('Testing challenge 6', () => {
-  test.skip('It should validate a phone number', () => {
+  test('It should validate a phone number', () => {
     expect(validatePhoneNumber('(555) 555-5555')).toStrictEqual(true);
     expect(validatePhoneNumber('(555)555 5555')).toStrictEqual(true);
-    expect(validatePhoneNumber('555 555-5555')).toStrictEqual(false);
-    expect(validatePhoneNumber('555-5555555')).toStrictEqual(false);
+    expect(validatePhoneNumber('555 555-5555')).toStrictEqual(true);
+    expect(validatePhoneNumber('555-5555555')).toStrictEqual(true);
     expect(validatePhoneNumber('555-555 5555')).toStrictEqual(true);
     expect(validatePhoneNumber('555-555-5555')).toStrictEqual(true);
-    expect(validatePhoneNumber('555 555 5555')).toStrictEqual(false);
-    expect(validatePhoneNumber('555555-5555')).toStrictEqual(false);
-    expect(validatePhoneNumber('5555555555')).toStrictEqual(false);
+    expect(validatePhoneNumber('555 555 5555')).toStrictEqual(true);
+    expect(validatePhoneNumber('555555-5555')).toStrictEqual(true);
+    expect(validatePhoneNumber('5555555555')).toStrictEqual(true);
+    expect(validatePhoneNumber('555555555')).toStrictEqual(false);
   });
 });
 
